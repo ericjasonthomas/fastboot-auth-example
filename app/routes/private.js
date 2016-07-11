@@ -21,11 +21,12 @@ export default Ember.Route.extend({
       let token = this.get('cookies').read('token');
       options.headers = {
         'Cookie': `token=${token}`
-      }
+      };
     } else {
       options.xhrFields = {
+        crossDomain: true,
         withCredentials: true
-      }
+      };
     }
 
     return this.get('ajax').request(`${config.apiHost}/private-data`, options).then((response) => {

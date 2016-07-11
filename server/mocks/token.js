@@ -5,7 +5,7 @@ module.exports = function(app) {
 
   tokenRouter.post('/', function(req, res) {
     if (req.body.username === 'letme' && req.body.password === 'in') {
-      res.status(204).cookie('token', 'fdt4325trgf', { httpOnly: true/*, secure: true*/ }).end();
+      res.status(204).cookie('token', 'fdt4325trgf', { httpOnly: true, domain: '.localhost'/*, secure: true*/ }).end();
     } else {
       res.status(401).end();
     }
